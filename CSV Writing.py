@@ -45,19 +45,19 @@ for file in os.listdir("Season Stats"):
                 refs[line["Referee"]]["Fouls"] += int(line["HF"]) + int(line["AF"])
 
 ref_header = [key for key in refs["M Dean"].keys()]
-with open('Ref_Stats.csv', "w", newline='') as f:
+with open('written_data_files/Ref_Stats.csv', "w", newline='') as f:
     writer = csv.DictWriter(f, fieldnames=ref_header)
     writer.writeheader()
     writer.writerows(refs.values())
 
 team_header = [key for key in teams["Brentford"].keys()]
-with open("Team_Stats.csv", "w", newline='') as f:
+with open("written_data_files/Team_Stats.csv", "w", newline='') as f:
     writer = csv.DictWriter(f, fieldnames=team_header)
     writer.writeheader()
     writer.writerows(teams.values())
 
 current_year_refs_header = [key for key in refs["M Dean"].keys()]
-with open("current_ref_stats.csv", "w", newline='') as f:
+with open("written_data_files/current_ref_stats.csv", "w", newline='') as f:
     writer = csv.DictWriter(f, fieldnames=current_year_refs_header)
     writer.writeheader()
     writer.writerows(current_year_refs.values())
